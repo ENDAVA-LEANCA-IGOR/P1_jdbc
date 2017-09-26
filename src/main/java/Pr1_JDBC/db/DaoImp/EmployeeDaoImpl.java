@@ -1,5 +1,6 @@
-package Pr1_JDBC.db;
+package Pr1_JDBC.db.DaoImp;
 
+import Pr1_JDBC.db.Dao.EmployeeDao;
 import Pr1_JDBC.model.Employee;
 import java.sql.*;
 import java.util.ArrayList;

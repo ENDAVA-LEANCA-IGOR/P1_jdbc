@@ -1,4 +1,4 @@
-package Pr1_JDBC.db;
+package Pr1_JDBC.db.Dao;
 
 import Pr1_JDBC.model.Employee;
 
