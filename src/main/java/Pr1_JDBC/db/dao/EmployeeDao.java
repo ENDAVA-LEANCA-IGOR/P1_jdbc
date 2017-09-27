@@ -5,7 +5,7 @@ import Pr1_JDBC.db.model.Employee;
 import java.util.List;
 
 public interface EmployeeDao {
-    Employee getById(Long id);
+    public Employee getById(Long id);
 
     List<Employee> getByFirstName(String firstName);
 

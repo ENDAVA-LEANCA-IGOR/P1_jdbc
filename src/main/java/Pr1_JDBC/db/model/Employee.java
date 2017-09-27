@@ -59,10 +59,6 @@ public class Employee {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     @Override
     public String toString() {
         return "Employee{" +
@@ -73,5 +69,9 @@ public class Employee {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 '}';
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 }
