@@ -1,7 +1,7 @@
 package Pr1_JDBC.db;
 
 import Pr1_JDBC.db.dao.EmployeeDao;
-import Pr1_JDBC.db.daoImp.EmployeeDaoImpl;
+import Pr1_JDBC.db.dao.daoImp.EmployeeDaoImpl;
 import Pr1_JDBC.db.model.Employee;
 import org.junit.Before;
 import org.junit.Test;
@@ -51,4 +51,26 @@ public class EmployeeDaoImplTest {
 
         assertEquals(0,byFirstName.size());
     }
+    @Test
+    public void shouldReturnTrueUpdate(){
+        Employee byId = employeeDao.getById(1L);
+
+        System.out.println(byId);
+
+        byId.setFirstName("Vasile1");
+
+        employeeDao.update(byId);
+
+        System.out.println(byId);
+        Employee updated = employeeDao.getById(1L);
+
+        assertEquals("Vasile1", updated.getFirstName());
+//        Employee result = employeeDao.update(new Employee());
+//        assertEquals(0,byFirstName.size());
+
+
+
+    }
+
+
 }

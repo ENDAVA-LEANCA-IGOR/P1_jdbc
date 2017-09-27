@@ -1,4 +1,4 @@
-package Pr1_JDBC.db.daoImp;
+package Pr1_JDBC.db.dao.daoImp;
 
 import Pr1_JDBC.db.dao.EmployeeDao;
 import Pr1_JDBC.db.model.Employee;
@@ -63,18 +63,20 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public boolean update(Employee employee) {
+        int numberOfUpdates;
         try (
                 Connection conn = DriverManager.getConnection(conectionUrl, userName, password);
-                Statement stmt = conn.createStatement();
-                String sql = "UPDATE EMPLOYEE set f_name = 'qwe' where  emp_id =1";
-                stmt.executeQuery(sql);
-
+                PreparedStatement preparedStatement = conn.prepareStatement("UPDATE EMPLOYEE SET F_NAME=?, L_NAME = ? WHERE EMP_ID=?");
+        ) {
+            preparedStatement.setString(1, employee.getFirstName());
+            preparedStatement.setString(2, employee.getLastName());
+            preparedStatement.setLong(3, employee.getEmployeeId());
+            numberOfUpdates = preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            return false;
         }
-
-
+        return numberOfUpdates > 0;
     }
 
     @Override

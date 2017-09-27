@@ -1,10 +1,7 @@
-package Pr1_JDBC.db.daoImp;
+package Pr1_JDBC.db.dao.daoImp;
 
-import Pr1_JDBC.db.model.Departament;
 import org.junit.Before;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class DepartamentDaoImplTest {
 
