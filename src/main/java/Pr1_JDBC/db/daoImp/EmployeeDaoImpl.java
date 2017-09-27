@@ -67,14 +67,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
                 Connection conn = DriverManager.getConnection(conectionUrl, userName, password);
                 Statement stmt = conn.createStatement();
                 String sql = "UPDATE EMPLOYEE set f_name = 'qwe' where  emp_id =1";
-                stmt.executeUpdate(sql);
+                stmt.executeQuery(sql);
 
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
         }
 
-        return false;
+
     }
 
     @Override
