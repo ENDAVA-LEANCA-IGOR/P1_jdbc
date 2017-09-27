@@ -1,6 +1,6 @@
-package Pr1_JDBC.db.Dao;
+package Pr1_JDBC.db.dao;
 
-import Pr1_JDBC.model.Employee;
+import Pr1_JDBC.db.model.Employee;
 
 import java.util.List;
 

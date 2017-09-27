@@ -1,8 +1,8 @@
 package Pr1_JDBC.db;
 
-import Pr1_JDBC.db.Dao.EmployeeDao;
-import Pr1_JDBC.db.DaoImp.EmployeeDaoImpl;
-import Pr1_JDBC.model.Employee;
+import Pr1_JDBC.db.dao.EmployeeDao;
+import Pr1_JDBC.db.daoImp.EmployeeDaoImpl;
+import Pr1_JDBC.db.model.Employee;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,14 +1,12 @@
-package Pr1_JDBC;
+package Pr1_JDBC.sql_query;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
-import java.sql.ResultSet;
 
-
-public class DELETE
+public class INSERT
 {
     public static void main( String[] args ) throws ParserConfigurationException, IOException, ClassNotFoundException {
         String userName = "postgres";
@@ -24,27 +22,21 @@ public class DELETE
             System.out.println("Opened database successfully");
 
             stmt = connection.createStatement();
-            String sql = "DELETE from COMPANY where ID = 2;";
+            String sql = "INSERT INTO employee (f_name,l_name,manag_idf,salary_idf) "
+                    + "VALUES ('Paul', 'Gheorghiu', 1, 2 );";
             stmt.executeUpdate(sql);
-            connection.commit();
 
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM COMPANY;" );
-            while ( rs.next() ) {
-                int id = rs.getInt("id");
-                String  name = rs.getString("name");
-                int age  = rs.getInt("age");
-                String  address = rs.getString("address");
-                float salary = rs.getFloat("salary");
-                System.out.println( "ID = " + id );
-                System.out.println( "NAME = " + name );
-                System.out.println( "AGE = " + age );
-                System.out.println( "ADDRESS = " + address );
-                System.out.println( "SALARY = " + salary );
-                System.out.println();
-            }
-            rs.close();
+
+            sql = "INSERT INTO employee (f_name,l_name,manag_idf,salary_idf) "
+                    + "VALUES ('Paul1', 'Gheorghiu2', 1, 1 );";
+            stmt.executeUpdate(sql);
+
+
             stmt.close();
+            connection.commit();
             connection.close();
+
+
         } catch (Exception e) {
             e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());

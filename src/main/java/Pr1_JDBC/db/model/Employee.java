@@ -1,4 +1,4 @@
-package Pr1_JDBC.model;
+package Pr1_JDBC.db.model;
 
 public class Employee {
     private Long employeeId;
@@ -8,31 +8,11 @@ public class Employee {
     private String firstName;
     private String lastName;
 
-    public Employee(Long employeeId, Long departmentId, Long managerId, Long salaryId, String firstName, String lastName) {
-        this.employeeId = employeeId;
-        this.departmentId = departmentId;
-        this.managerId = managerId;
-        this.salaryId = salaryId;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
 
     public Employee(Long employeeId, String firstName, String lastName) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
-    }
-
-    @Override
-    public String toString() {
-        return "Employee{" +
-                "employeeId=" + employeeId +
-                ", departmentId=" + departmentId +
-                ", managerId=" + managerId +
-                ", salaryId=" + salaryId +
-                ", firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                '}';
     }
 
     public Long getEmployeeId() {
@@ -81,5 +61,17 @@ public class Employee {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeId=" + employeeId +
+                ", departmentId=" + departmentId +
+                ", managerId=" + managerId +
+                ", salaryId=" + salaryId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

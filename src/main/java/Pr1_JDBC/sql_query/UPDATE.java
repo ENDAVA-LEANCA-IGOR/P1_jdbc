@@ -1,4 +1,4 @@
-package Pr1_JDBC;
+package Pr1_JDBC.sql_query;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
