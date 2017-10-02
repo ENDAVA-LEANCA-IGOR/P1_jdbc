@@ -9,7 +9,7 @@ import java.util.List;
 
 public class EmployeeDaoImpl implements EmployeeDao {
     private String userName = "postgres";
-    private String password = "349InG167l";
+    private String password = "postgres";
     private String conectionUrl = "jdbc:postgresql://localhost:5432/BaseTest";
 
     public EmployeeDaoImpl() throws ClassNotFoundException, SQLException {

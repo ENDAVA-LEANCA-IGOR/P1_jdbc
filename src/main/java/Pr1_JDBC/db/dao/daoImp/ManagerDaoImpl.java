@@ -8,7 +8,7 @@ import java.sql.*;
 
 public class ManagerDaoImpl implements ManagerDao {
     private String userName = "postgres";
-    private String password = "349InG167l";
+    private String password = "postgres";
     private String conectionUrl = "jdbc:postgresql://localhost:5432/BaseTest";
 
     public ManagerDaoImpl() throws ClassNotFoundException, SQLException {
