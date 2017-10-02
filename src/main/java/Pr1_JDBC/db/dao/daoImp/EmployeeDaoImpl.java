@@ -36,30 +36,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
         }
     }
 
-    @Override
-    public List<Employee> getByFirstName(String firstName) {
-        try (
-                Connection conn = DriverManager.getConnection(conectionUrl, userName, password);
-                Statement stmt = conn.createStatement();
-                ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLOYEE WHERE F_NAME = '" + firstName + "'");
-        ) {
-            List<Employee> employees = new ArrayList<>();
-
-            while (rs.next()) {
-                Employee employee = new Employee(rs.getLong("emp_id"), rs.getString("f_name"), rs.getString("l_name"));
-                employees.add(employee);
-            }
-            return employees;
-        } catch (SQLException e) {
-            return Collections.emptyList();
-        }
-    }
-
-    @Override
-    public boolean save(Employee employee) {
-
-        return false;
-    }
 
     @Override
     public boolean update(Employee employee) {
@@ -81,6 +57,36 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
     @Override
     public boolean delete(Long employeeId) {
-        return false;
+        int numberOfDeletes;
+        try (
+                Connection conn = DriverManager.getConnection(conectionUrl, userName, password);
+                PreparedStatement preparedStatement = conn.prepareStatement("DELETE EMPLOYEE  WHERE EMP_ID=?");
+        ) {
+            preparedStatement.setLong(1, employeeId);
+            numberOfDeletes = preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return numberOfDeletes > 0;
+    }
+
+    @Override
+    public List<Employee> getByFirstName(String firstName) {
+        try (
+                Connection conn = DriverManager.getConnection(conectionUrl, userName, password);
+                Statement stmt = conn.createStatement();
+                ResultSet rs = stmt.executeQuery("SELECT * FROM EMPLOYEE WHERE F_NAME = '" + firstName + "'");
+        ) {
+            List<Employee> employees = new ArrayList<>();
+
+            while (rs.next()) {
+                Employee employee = new Employee(rs.getLong("emp_id"), rs.getString("f_name"), rs.getString("l_name"));
+                employees.add(employee);
+            }
+            return employees;
+        } catch (SQLException e) {
+            return Collections.emptyList();
+        }
     }
 }

@@ -3,20 +3,23 @@ package Pr1_JDBC.db.dao.daoImp;
 import org.junit.Before;
 import org.junit.Test;
 
-public class DepartamentDaoImplTest {
+import static org.junit.Assert.*;
 
-    DepartamentDaoImpl departament;
-
+public class ManagerDaoImplTest {
     @Before
     public void setUp() throws Exception {
-        departament = new DepartamentDaoImpl();
-
     }
 
     @Test
     public void getById() throws Exception {
-        departament.getById(2l);
+    }
 
+    @Test
+    public void update() throws Exception {
+    }
+
+    @Test
+    public void delete() throws Exception {
     }
 
 }
